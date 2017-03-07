@@ -19,10 +19,21 @@ void setup(){
 }
 
 void loop(){
-  potValue = analogRead(POT_PIN);    // read the value from the sensor
-  Serial.println(potValue);
-
-  delay(100);
+  move(MOTOR_A, 100, 0);
+  delay(3000);
+  move(MOTOR_A, 100, 1);
+  delay(3000);
+  int spd = 0;
+  for (int i = 0;i<20;i++){
+    move(MOTOR_A, spd, 1);
+    spd = spd+10;
+    delay(500);
+  }
+  move(MOTOR_A, 255, 1);
+  delay(3000);
+  stop();
+  delay(1000);
+  
 
 }
 
