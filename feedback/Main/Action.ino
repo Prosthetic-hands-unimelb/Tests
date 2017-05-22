@@ -143,41 +143,6 @@ int action(int option) {
         lastPotD = potValD;
         break;
       }
-    case 5:
-      {
-        setPointA = 0;
-        setPointB = 0;
-        setPointC = 0;
-        setPointD = 0;
-        // read the value from the potentiometer sensor
-        potValUpdate();
-
-        //determine if there is a new turn
-        currentPositionA = edgeDetect(MOTOR_A);
-        currentPositionB = edgeDetect(MOTOR_B);
-        currentPositionC = edgeDetect(MOTOR_C);
-        currentPositionD = edgeDetect(MOTOR_D);
-
-        //PID control
-        gainSchedule(currentPositionA, setPointA);
-        gainSchedule(currentPositionB, setPointB);
-        gainSchedule(currentPositionC, setPointC);
-        gainSchedule(currentPositionD, setPointD);
-
-        //Printing parameters for debugging
-        prtF();
-
-        //Motor Action
-        //      controller(MOTOR_B, currentPositionB, setPointB);
-        controller(MOTOR_A, currentPositionA, setPointA);
-
-        //Update last pot value
-        lastPotA = potValA;
-        lastPotB = potValB;
-        lastPotC = potValC;
-        lastPotD = potValD;
-        break;
-      }
     default:
       // if nothing else matches, do the default
       // default is optional

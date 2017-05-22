@@ -19,9 +19,5 @@ int lastPotUpdate(){
   lastPotD = potValD;
 }
 
-int voltDetect(){
-  if (analogRead(batDetect<700)){
-    
-  }
-}
+// TODO low bat detect
 // TODO overcurrent detection
